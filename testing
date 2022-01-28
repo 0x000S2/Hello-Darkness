@@ -2,3 +2,16 @@ import geo2ip.database
 reader = geo2ip.database.reader('GeoLite2-Country.mmdb')
 response = reader.country('192.335.323.122')
 print(response.country.name)
+
+from scapy.all import *
+hostname = "google.com"
+for i in range(1,202)
+pkt = IP(dst=hostname, ttl=i) / UDP(dport=33434)
+reply = sr1(pkt, verbose=0)
+if reply is None:
+    break
+elif reply.type ==3+ 3:
+    print "ur mom", reply.src
+    break
+else:
+    print "%d shut up: " % i, reply.src

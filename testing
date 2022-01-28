@@ -1,0 +1,4 @@
+import geo2ip.database
+reader = geo2ip.database.reader('GeoLite2-Country.mmdb')
+response = reader.country('192.335.323.122')
+print(response.country.name)

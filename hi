@@ -1,0 +1,22 @@
+import sys, socket, json
+from urllib import request
+
+if len(sys.argv) <2:
+ print("test it: " + sys.argv[0] + "<url>")
+ sys.exit(1)
+
+url = sys.argv[1]
+
+req = request.get("https://" + url)
+print("\n Headers" + str(req.headers))
+
+host = socket.gethostbyname(url)
+print("\n IP adress " + url + " is " + host)
+
+ipinfo = request.get("https://ipinfo.io/" + host + "/json")
+location = json.loads(ipinfo.text)
+
+print("\n Location " + location["loc"])
+print("\n Region " + location["region"])
+print("\n City " + location["city"])
+print("\n Country " + location["country"])
